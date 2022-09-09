@@ -1,5 +1,6 @@
 package com.br.apibarbearia.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -23,7 +24,8 @@ import lombok.Setter;
 @Setter
 public class DadosPessoais implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	@Serial
+    private static final long serialVersionUID = 1L;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
