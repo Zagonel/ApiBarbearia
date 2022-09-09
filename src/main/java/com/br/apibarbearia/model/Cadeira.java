@@ -15,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Cadeiras {
+public class Cadeira {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
