@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.br.apibarbearia.model.enuns.DiaSemana;
@@ -34,13 +36,16 @@ public class Horario implements Serializable {
     @Column
     private Long id;
 
-    @Column
+    @Column(name="dia_semana")
     private DiaSemana diaSemana;
     
-    @Column
+    @Column(name="hora_inicio")
     private Time horaInicio;
 
-    @Column
+    @Column(name="hora_fim")
     private Time horaFim;
-
+    
+    @OneToOne
+	@JoinColumn(name = "id", referencedColumnName = "id_agenda_servico")
+    private AgendaServico agendaServico;
 }

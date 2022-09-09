@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.br.apibarbearia.model.enuns.NivelPermissao;
@@ -33,16 +35,17 @@ public class Funcionario implements Serializable {
     @Column
     private Long id;
 
-    @Column
+	@OneToOne
+	@JoinColumn(name = "id", referencedColumnName = "id_dados_pessoais")
     private DadosPessoais dadosPessoais;
     
     @Column
     private String usuario;
 
     @Column
-    private String Senha;
+    private String senha;
 
-    @Column
+    @Column(name="nivel_permissao")
     private NivelPermissao nivelPermissao;
 	
 }

@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="horario", schema = "public")
+@Table(name="servico", schema = "public")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -31,16 +31,16 @@ public class Servico {
     @Column
     private Long id;
 	
-	@Column
+	@Column(name="nome_servico")
     private String nomeServico;
 	
-	@Column
+	@Column(name="descricao_servico")
 	private String descricaoServico;
 	
-	@Column 
-	private Double precoServico;
+	@Column
+	private Double preco;
 	
-	@Column 
+	@Column (name="tempo_execucao")
 	private Time tempoExecucaoServico;
 	
 }
