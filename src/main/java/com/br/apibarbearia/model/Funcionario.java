@@ -45,5 +45,4 @@ public class Funcionario implements Serializable {
     @Column
     private NivelPermissao nivelPermissao;
 	
-	
 }

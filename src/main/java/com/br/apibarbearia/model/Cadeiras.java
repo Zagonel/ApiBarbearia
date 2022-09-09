@@ -1,6 +1,7 @@
 package com.br.apibarbearia.model;
 
 
+import com.br.apibarbearia.model.enuns.StatusCadeira;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,7 @@ public class Cadeiras {
     @Column
     private int numrCadeira;
 
+    @Column
+    private StatusCadeira status;
 
 }
