@@ -18,7 +18,7 @@ public class DadosPessoaisService {
     }
 
     public DadosPessoais buscarDadosPessoaisById(Long Id){
-        Optional<DadosPessoais> cliente =  dadosPessoaisRepository.findById(Id);
-        return cliente.get();
+        Optional<DadosPessoais> dadosPessoais =  dadosPessoaisRepository.findById(Id);
+        return dadosPessoais.get();
     }
 }

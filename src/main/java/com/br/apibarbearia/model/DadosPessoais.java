@@ -34,6 +34,7 @@ public class DadosPessoais implements Serializable {
 
     @Column
     private String nome;
+    
     @Column
     private String cpf;
 

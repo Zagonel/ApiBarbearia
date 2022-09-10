@@ -17,8 +17,8 @@ public class FuncionarioResource {
 	@Autowired
     private FuncionarioService funcionarioService;
 
-    @PostMapping("/add")
-    public ResponseEntity<Funcionario> addDadoPessoal(@RequestBody Funcionario funcionario){
-        return ResponseEntity.ok(funcionarioService.salvarDadosPessoais(funcionario));
+    @PostMapping("/save")
+    public ResponseEntity<Funcionario> salvarFuncionario(@RequestBody Funcionario funcionario){
+        return ResponseEntity.ok(funcionarioService.salvarFuncionario(funcionario));
     }
 }
