@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,23 +17,23 @@ public class ServicoOferecidoService {
     @Autowired
     ServicoOferecidoRepository servicoOferecidoRepository;
 
-    public ServicoOferecido adicionaServico(ServicoOferecido servicoOferecido){
+    public ServicoOferecido adicionaServico(ServicoOferecido servicoOferecido) {
         return servicoOferecidoRepository.save(servicoOferecido);
     }
 
-    public List<ServicoOferecido> buscarTodosServicos(){
+    public List<ServicoOferecido> buscarTodosServicos() {
         return servicoOferecidoRepository.findAll();
     }
 
-    public ServicoOferecido buscaPorId(Long id){
+    public ServicoOferecido buscaPorId(Long id) {
         Optional<ServicoOferecido> servicoOferecido = servicoOferecidoRepository.findById(id);
         return servicoOferecido.get();
     }
 
-    public ServicoOferecido removeServicoPorId(Long id){
+    public ServicoOferecido removeServicoPorId(Long id) {
         Optional<ServicoOferecido> funcionarioSalvo = servicoOferecidoRepository.findById(id);
 
-        if(funcionarioSalvo == null ) {
+        if (funcionarioSalvo == null) {
             throw new RuntimeException();
         }
         servicoOferecidoRepository.deleteById(id);
@@ -43,10 +44,18 @@ public class ServicoOferecidoService {
 
         Optional<ServicoOferecido> servicoSalvo = servicoOferecidoRepository.findById(id);
 
-        if(servicoSalvo == null ) {
+        if (servicoSalvo == null) {
             throw new RuntimeException();
         }
         BeanUtils.copyProperties(servicoOferecido, servicoSalvo.get());
         return servicoOferecidoRepository.save(servicoSalvo.get());
+    }
+
+    public List<ServicoOferecido> buscaServicosOferecidosByArrayId(Long[] id) {
+        List<ServicoOferecido> servicoOferecidoList = new ArrayList<>();
+        for (Long aLong : id) {
+            servicoOferecidoList.add(buscaPorId(aLong));
+        }
+        return servicoOferecidoList;
     }
 }

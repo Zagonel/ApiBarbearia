@@ -34,10 +34,10 @@ public class Cadeira implements Serializable {
     @Column
     private Long id;
 
-    @Column
+    @Column(name = "numero_cadeira")
     private int numrCadeira;
 
-    @Column
+    @Column(name = "status")
     private StatusCadeira status;
 
 }
