@@ -36,7 +36,7 @@ public class Cliente implements Serializable {
     private Long id;
 
 	@OneToOne
-	@JoinColumn(name = "id", referencedColumnName = "id_dados_pessoais")
+	@JoinColumn(name = "id_dados_pessoais", referencedColumnName = "id")
     private DadosPessoais dadosPessoais;
     
     @Column

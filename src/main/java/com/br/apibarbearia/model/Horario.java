@@ -46,6 +46,6 @@ public class Horario implements Serializable {
     private Time horaFim;
     
     @OneToOne
-	@JoinColumn(name = "id", referencedColumnName = "id_agenda_servico")
+	@JoinColumn(name = "id_agenda_servico", referencedColumnName = "id")
     private AgendaServico agendaServico;
 }
