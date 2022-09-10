@@ -38,24 +38,24 @@ public class AgendaServico implements Serializable {
     private Long id;
 	
 	@OneToOne
-	@JoinColumn(name = "id", referencedColumnName = "id_cliente")
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id")
     private Cliente cliente;
 	
 	@OneToMany
-	@JoinColumn(name = "id", referencedColumnName = "id_servico")
+	@JoinColumn(name = "id_servico", referencedColumnName = "id")
 	private List<Servico> servicos;
 
 	@OneToOne
-	@JoinColumn(name = "id", referencedColumnName = "id_funcionario")
+	@JoinColumn(name = "id_funcionario", referencedColumnName = "id")
 	private Funcionario funcionario;
 	
 	@OneToOne
-	@JoinColumn(name = "id", referencedColumnName = "id_cadeira")
+	@JoinColumn(name = "id_cadeira", referencedColumnName = "id")
 	private Cadeira cadeira;
 		
 	@OneToOne
-	@JoinColumn(name = "id", referencedColumnName = "id_horario")
-	private Horario horarios;
+	@JoinColumn(name = "id_horario", referencedColumnName = "id")
+	private Horario horario;
 	
 	@Column(name="tempo_total_estimado")
 	private Time tempoTotalEstimado;
