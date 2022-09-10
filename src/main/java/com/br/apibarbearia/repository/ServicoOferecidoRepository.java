@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.br.apibarbearia.model.ServicoOferecido;
 
 @Repository
-public interface ServicoRepository extends JpaRepository<ServicoOferecido, Long>{
+public interface ServicoOferecidoRepository extends JpaRepository<ServicoOferecido, Long>{
 
 }
