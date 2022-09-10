@@ -1,6 +1,5 @@
 package com.br.apibarbearia.service;
 
-import com.br.apibarbearia.model.Funcionario;
 import com.br.apibarbearia.model.ServicoOferecido;
 import com.br.apibarbearia.repository.ServicoOferecidoRepository;
 import org.springframework.beans.BeanUtils;
@@ -51,6 +50,7 @@ public class ServicoOferecidoService {
         return servicoOferecidoRepository.save(servicoSalvo.get());
     }
 
+    
     public List<ServicoOferecido> buscaServicosOferecidosByArrayId(Long[] id) {
         List<ServicoOferecido> servicoOferecidoList = new ArrayList<>();
         for (Long aLong : id) {
