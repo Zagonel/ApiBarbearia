@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name="servico", schema = "public")
+@Table(name="servicos_realizados", schema = "public")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -39,8 +39,8 @@ public class ServicoRealizado {
     private Horario horario;
 
     @OneToMany
-    @JoinColumn(name = "id_servicos", referencedColumnName = "id")
-    private List<Servico> servicos;
+    @JoinColumn(name = "id_servicos_oferecido", referencedColumnName = "id")
+    private List<ServicoOferecido> servicos;
 
     @Column(name = "valor_total")
     private double valorTotal;

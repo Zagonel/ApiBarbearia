@@ -43,7 +43,7 @@ public class AgendaServico implements Serializable {
 	
 	@OneToMany
 	@JoinColumn(name = "id_servicos", referencedColumnName = "id")
-	private List<Servico> servicos;
+	private List<ServicoOferecido> servicos;
 
 	@OneToOne
 	@JoinColumn(name = "id_funcionario", referencedColumnName = "id")

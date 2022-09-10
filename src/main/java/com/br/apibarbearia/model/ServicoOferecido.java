@@ -17,12 +17,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="servico", schema = "public")
+@Table(name="servicos_oferecido", schema = "public")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Servico implements Serializable {
+public class ServicoOferecido implements Serializable {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
