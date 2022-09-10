@@ -1,5 +1,6 @@
 package com.br.apibarbearia.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -34,6 +35,10 @@ public class FuncionarioService {
     	return funcionarioRepository.findById(id).get();
     }
     
+    public List<Funcionario> buscarTodosFuncionarios() {
+    	return funcionarioRepository.findAll();
+    }
+    
     public Funcionario alterarFuncionario(Long id,Funcionario funcionario) {
     	
     	Optional<Funcionario> funcionarioSalvo = funcionarioRepository.findById(id);
@@ -41,7 +46,7 @@ public class FuncionarioService {
     	if(funcionarioSalvo == null ) {
     		throw new RuntimeException();
     	}  	
-    	BeanUtils.copyProperties(funcionario, funcionarioSalvo.get());
+    	BeanUtils.copyProperties(funcionario, funcionarioSalvo.get(),"id");
         return funcionarioRepository.save(funcionarioSalvo.get());
     }
     
