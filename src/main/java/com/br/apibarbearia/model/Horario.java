@@ -47,6 +47,9 @@ public class Horario implements Serializable {
     @Column(name="hora_fim")
     private Time horaFim;
     
+	@Column(name="tempo_total_estimado")
+	private Time tempoTotalEstimado;
+    
     @Column(name="data_agendamento")
     private Date dataAgendamento;
     

@@ -64,9 +64,6 @@ public class AgendaHorario implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "id_horario", referencedColumnName = "id")
 	private Horario horario;
-	
-	@Column(name="tempo_total_estimado")
-	private Time tempoTotalEstimado;
 
 	@Column(name="data_inicio_agendamento")
 	private LocalDateTime dataHoraAgendamento;

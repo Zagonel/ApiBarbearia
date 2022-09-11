@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,6 +46,7 @@ public class ServicoOferecido implements Serializable {
 	@Column
 	private Double preco;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "servicosOferecidos", fetch = FetchType.LAZY)
 	private List<AgendaHorario> agendaServicos;
 	
