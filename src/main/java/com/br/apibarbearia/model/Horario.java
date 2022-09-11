@@ -3,6 +3,7 @@ package com.br.apibarbearia.model;
 import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +46,13 @@ public class Horario implements Serializable {
     @Column(name="hora_fim")
     private Time horaFim;
     
+    @Column(name="data_agendamento")
+    private Date dataAgendamento;
+    
     @OneToOne
-	@JoinColumn(name = "id_agenda_servico", referencedColumnName = "id")
-    private AgendaServico agendaServico;
+	@JoinColumn(name = "id_cadeira", referencedColumnName = "id")
+    private Cadeira cadeira;
+    
+    @OneToOne(mappedBy = "horario")
+    private AgendaHorario agendaServico;
 }

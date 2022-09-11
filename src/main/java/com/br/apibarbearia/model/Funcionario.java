@@ -44,6 +44,10 @@ public class Funcionario implements Serializable {
 
     @Column
     private String senha;
+    
+    @OneToOne
+	@JoinColumn(name = "id_cadeiras", referencedColumnName = "id")
+    private Cadeira cadeira;
 
     @Column(name="nivel_permissao")
     private NivelPermissao nivelPermissao;

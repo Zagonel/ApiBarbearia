@@ -1,20 +1,34 @@
 package com.br.apibarbearia.service;
 
-import com.br.apibarbearia.model.AgendaServico;
-import com.br.apibarbearia.model.Horario;
-import com.br.apibarbearia.model.ServicoOferecido;
-import com.br.apibarbearia.repository.HorarioRepository;
-import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.br.apibarbearia.model.Horario;
+import com.br.apibarbearia.repository.HorarioRepository;
+
 @Service
 public class HorarioService {
-
+	
+	@Autowired
     HorarioRepository horarioRepository;
 
+    public Horario verificaDisponibilidadeDoHorario(Horario horario){
+    	
+    	
+    	
+//    	Optional<Horario> horarioExistente = ;
+    	
+    	if(!(horarioRepository.buscarHorarioExistente(horario.getCadeira().getId(), horario.getHoraInicio(), horario.getHoraFim(), horario.getDataAgendamento()).isEmpty())) {
+    		return null;
+    	}
+    	
+    	return horarioRepository.save(horario);
+    }
+    
     public Horario salvarHorario(Horario horario){
         return horarioRepository.save(horario);
     }

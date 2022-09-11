@@ -51,11 +51,11 @@ public class ServicoOferecidoService {
     }
 
     
-    public List<ServicoOferecido> buscaServicosOferecidosByArrayId(Long[] id) {
-        List<ServicoOferecido> servicoOferecidoList = new ArrayList<>();
-        for (Long aLong : id) {
-            servicoOferecidoList.add(buscaPorId(aLong));
+    public List<ServicoOferecido> buscaServicosOferecidosByArrayId(List<ServicoOferecido> servicoOferecido) {
+        List<Long> idServicoOferecidoList = new ArrayList<>();
+        for (ServicoOferecido aux : servicoOferecido) {
+        	idServicoOferecidoList.add(aux.getId());
         }
-        return servicoOferecidoList;
+        return servicoOferecidoRepository.buscarServicosOferecidos(idServicoOferecidoList);
     }
 }

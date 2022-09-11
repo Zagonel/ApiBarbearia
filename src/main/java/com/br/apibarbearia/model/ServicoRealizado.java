@@ -38,9 +38,9 @@ public class ServicoRealizado {
     @JoinColumn(name = "id_horario", referencedColumnName = "id")
     private Horario horario;
 
-    @OneToMany
-    @JoinColumn(name = "id_servicos_oferecido", referencedColumnName = "id")
-    private List<ServicoOferecido> servicos;
+//    @OneToMany
+//    @JoinColumn(name = "id_servicos_oferecido", referencedColumnName = "id")
+//    private List<ServicoOferecido> servicos;
 
     @Column(name = "valor_total")
     private double valorTotal;
