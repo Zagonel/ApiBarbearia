@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 import com.br.apibarbearia.model.enuns.DiaSemana;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -52,7 +53,8 @@ public class Horario implements Serializable {
     @OneToOne
 	@JoinColumn(name = "id_cadeira", referencedColumnName = "id")
     private Cadeira cadeira;
-    
+
+    @JsonIgnore
     @OneToOne(mappedBy = "horario")
     private AgendaHorario agendaServico;
 }

@@ -1,5 +1,6 @@
 package com.br.apibarbearia.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,29 +23,24 @@ public class ServicoRealizado {
     @Column
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id")
-    private Cliente cliente;
-
-    @OneToOne
-    @JoinColumn(name = "id_funcionario", referencedColumnName = "id")
-    private Funcionario funcionario;
-
-    @OneToOne
-    @JoinColumn(name = "id_cadeira", referencedColumnName = "id")
-    private Cadeira cadeira;
-
-    @OneToOne
-    @JoinColumn(name = "id_horario", referencedColumnName = "id")
-    private Horario horario;
-
-//    @OneToMany
-//    @JoinColumn(name = "id_servicos_oferecido", referencedColumnName = "id")
-//    private List<ServicoOferecido> servicos;
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "servicos_realizados_oferecidos",
+            joinColumns = {
+                    @JoinColumn(name = "id_servicos_realizados", referencedColumnName = "id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "id_servicos_oferecidos", referencedColumnName = "id")
+            })
+    private List<ServicoOferecido> servicosOferecidos;
 
     @Column(name = "valor_total")
     private double valorTotal;
 
     @Column(name="data_hora_conclusao")
     private LocalDateTime dataHoraConclusao;
+
+    @OneToOne
+    @JoinColumn(name="id_agenda_horario", referencedColumnName = "id")
+    private AgendaHorario agendaHorario;
 }

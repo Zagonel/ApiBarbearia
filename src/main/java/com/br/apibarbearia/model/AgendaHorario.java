@@ -76,6 +76,9 @@ public class AgendaHorario implements Serializable {
 	
 	@Column(name="valor_orcamento")
 	private Double valorOrcamento;
-	
+
+	@JsonIgnore
+	@OneToOne(mappedBy = "agendaHorario")
+	private ServicoRealizado servicoRealizado;
 
 }

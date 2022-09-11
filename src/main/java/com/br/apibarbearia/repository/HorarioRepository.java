@@ -17,7 +17,7 @@ public interface HorarioRepository extends JpaRepository<Horario, Long>{
 			+ "WHERE 1=1 "
 			+ "AND (h IS NOT NULL)"
 			+ "AND (h.dataAgendamento = :dataAgendamento) "
-			+ "AND ((h.horaInicio BETWEEN :horaInicio AND :horaFim) OR (h.horaFim BETWEEN :horaInicio AND horaFim))"
+			+ "AND ((h.horaInicio BETWEEN :horaInicio AND :horaFim) OR (h.horaFim BETWEEN :horaInicio AND :horaFim))"
 			+ "AND (h.cadeira.id = :idCadeira) ")
 	Optional<Horario> buscarHorarioExistente(Long idCadeira, Time horaInicio, Time horaFim, Date dataAgendamento);
 }
