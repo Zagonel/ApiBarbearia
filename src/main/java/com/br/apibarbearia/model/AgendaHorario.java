@@ -2,7 +2,6 @@ package com.br.apibarbearia.model;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -73,9 +72,6 @@ public class AgendaHorario implements Serializable {
 	
 	@Column(name="valor_orcamento")
 	private Double valorOrcamento;
-
-	@JsonIgnore
-	@OneToOne(mappedBy = "agendaHorario")
-	private ServicoRealizado servicoRealizado;
+	
 
 }
