@@ -1,5 +1,6 @@
 package com.br.apibarbearia.resource;
 
+import com.br.apibarbearia.dto.ServicoRealizadoDto;
 import com.br.apibarbearia.model.ServicoRealizado;
 import com.br.apibarbearia.service.ServicoRealizadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,8 @@ public class ServicoRealizadoResource {
     @Autowired
     ServicoRealizadoService servicoRealizadoService;
 
-    @PostMapping("/save/{id}/{valor}")
-    public ResponseEntity<ServicoRealizado> salvarServicoRealizado(@RequestParam Long id, @RequestParam Long valor){
-        return ResponseEntity.ok(servicoRealizadoService.salvarServicoRealizado(id, valor));
+    @PostMapping("/save/{id}")
+    public ResponseEntity<ServicoRealizado> salvarServicoRealizado(@PathVariable Long id, @RequestBody ServicoRealizadoDto servicoRealizadoDto){
+        return ResponseEntity.ok(servicoRealizadoService.salvarServicoRealizado(id, servicoRealizadoDto));
     }
 }
