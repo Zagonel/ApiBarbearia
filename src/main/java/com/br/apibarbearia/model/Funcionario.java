@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 import com.br.apibarbearia.model.enuns.NivelPermissao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,6 +43,7 @@ public class Funcionario implements Serializable {
     @Column
     private String usuario;
 
+    @JsonIgnore
     @Column
     private String senha;
     

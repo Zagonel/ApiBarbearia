@@ -3,6 +3,9 @@ package com.br.apibarbearia.service;
 import java.sql.Time;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Optional;
@@ -121,4 +124,14 @@ public class AgendaHorarioService {
 		return horarioService.verificaDisponibilidadeDoHorario(horarioAgendaServico);
 	}
 
+	public List<AgendaHorario> buscarDataAgendamentoByData(String dataInicio, String dataFinal){
+		DateTimeFormatter parser = new DateTimeFormatterBuilder().appendPattern("dd/MM/uuuu").parseDefaulting(ChronoField.HOUR_OF_DAY, 0).toFormatter();
+		LocalDateTime dateTimeInicio = LocalDateTime.parse(dataInicio, parser);
+		LocalDateTime dateTimeFinal = LocalDateTime.parse(dataFinal, parser);
+		return agendaHorarioRepository.buscarAgendaHorarioBetweenData(dateTimeInicio,dateTimeFinal);
+	}
+
+	public List<AgendaHorario> BuscarAgendaHorarioByCpfClienteOrCpfFuncionario(String cpfCliente, String cpfFuncionario){
+		return agendaHorarioRepository.BuscarAgendaHorarioByCpfClienteOrCpfFuncionario(cpfCliente,cpfFuncionario);
+	}
 }

@@ -20,4 +20,9 @@ public class ServicoRealizadoResource {
     public ResponseEntity<ServicoRealizado> salvarServicoRealizado(@PathVariable Long id, @RequestBody ServicoRealizadoDto servicoRealizadoDto){
         return ResponseEntity.ok(servicoRealizadoService.salvarServicoRealizado(id, servicoRealizadoDto));
     }
+
+    @GetMapping("/find")
+    public List<ServicoRealizado> buscarServicoRealizadoByCliente(@RequestParam String cpf, @RequestParam int id){
+        return servicoRealizadoService.buscarServicoRealizadoByCliente(cpf , id);
+    }
 }

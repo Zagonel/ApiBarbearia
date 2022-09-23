@@ -36,7 +36,7 @@ public class DadosPessoais implements Serializable {
     private String nome;
     
     @Column
-    private Long cpf;
+    private String cpf;
 
     @Column(name="data_nascimento")
     private Date dataNascimento;
